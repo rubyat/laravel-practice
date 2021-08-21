@@ -21,6 +21,7 @@ use App\Http\Controllers\DashboardController;
 // });
 
 Route::get('/',[DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/show/{story}',[DashboardController::class, 'show'])->name('dashboard.show');
 
 Route::get('/test', function () {
     dd(config('app.developer'));

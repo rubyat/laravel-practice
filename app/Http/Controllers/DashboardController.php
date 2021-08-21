@@ -27,4 +27,12 @@ class DashboardController extends Controller
             'stories' => $stories,
         ]);
     }
+    
+    public function show(Story $story)
+    {
+        
+        return view('dashboard.show',[
+            'story' => $story,
+        ]);
+    }
 }

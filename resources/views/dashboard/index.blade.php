@@ -27,12 +27,14 @@
                                 <td>Author</td>
                             </tr>
                             <tbody>
-                                @foreach ($stories as $item)
+                                @foreach ($stories as $story)
 
                                     <tr>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $item->type }}</td>
-                                        <td>{{ $item->user->name }}</td>
+                                        <td>
+                                            <a href="{{ route('dashboard.show', [$story]) }}">{{ $story->title }}</a>
+                                        </td>
+                                        <td>{{ $story->type }}</td>
+                                        <td>{{ $story->user->name }}</td>
                                         
                                     </tr>
                                     
