@@ -20,8 +20,15 @@ use App\Http\Controllers\DashboardController;
 //     return view('welcome');
 // });
 
+
+
 Route::get('/',[DashboardController::class, 'index'])->name('dashboard.index');
+
+
 Route::get('/show/{story}',[DashboardController::class, 'show'])->name('dashboard.show');
+
+
+//Route::get('/stat_story',[DashboardController::class, 'show'])->name('dashboard.page');
 
 Route::get('/test', function () {
     dd(config('app.developer'));
@@ -54,3 +61,8 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('stories', StoryController::class);
 
 });
+
+
+Route::get('/{slug}',[DashboardController::class, 'show'])->name('page.page');
+
+

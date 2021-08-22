@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Gate;
 
 class StoryController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->authorizeResource(Story::class, 'story');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -34,6 +42,7 @@ class StoryController extends Controller
     public function create()
     {
         //
+        //$this->authorize('create');
         $story = new Story;
         return view('stories.create', [
             'story' => $story,
@@ -58,7 +67,6 @@ class StoryController extends Controller
         // ]);
 
         auth()->user()->stories()->create($request->all());
-
         return redirect()->route('stories.index')->with('status','Story Created Successfully');
 
     }
@@ -87,6 +95,8 @@ class StoryController extends Controller
     {
         //
         //Gate::authorize('edit-story', $story);
+
+        //$this->authorize('update', $story);
           
         return view('stories.edit', [
             'story' => $story

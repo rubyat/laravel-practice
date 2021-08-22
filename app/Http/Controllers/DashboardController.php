@@ -11,7 +11,8 @@ class DashboardController extends Controller
     public function index()
     {
         
-        $query = Story::where('status', 1);
+        //$query = Story::where('status', 1);
+        $query = Story::active();
 
         $type = request()->input('type');
 
@@ -27,8 +28,24 @@ class DashboardController extends Controller
             'stories' => $stories,
         ]);
     }
-    
+
     public function show(Story $story)
+    {
+        
+        return view('dashboard.show',[
+            'story' => $story,
+        ]);
+    }
+    public function page($page)
+    {
+        dd('page');
+        
+        // return view('dashboard.show',[
+        //     'story' => $story,
+        // ]);
+    }
+    
+    public function show__(Story $story)
     {
         
         return view('dashboard.show',[

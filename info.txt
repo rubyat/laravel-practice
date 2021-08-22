@@ -1,0 +1,12 @@
+Laravel Request:
+    It is common checking instade of checking each time on form submission
+    Set custom requiremnt 
+    Set conditional requirment 
+    withValidator
+
+    provider / app provider authService
+
+    user permission can controll from here
+
+
+Scope call on model for extar query

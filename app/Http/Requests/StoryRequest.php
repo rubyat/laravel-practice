@@ -27,7 +27,7 @@ class StoryRequest extends FormRequest
         $storyId = $this->route('story.id');
 
         return [
-            'title' => ['required', 'min:10', 'max:50',
+            'title' => ['required', 'min:10', 'max:50', 
                 function($attributes, $values, $fail){
 
                     if($values == 'Dummy Title'){
@@ -44,7 +44,7 @@ class StoryRequest extends FormRequest
     }
 
 
-    public function wihtValidator($v)
+    public function withValidator($v)
     {
        $v->sometimes('body', 'max:200', function($input){
            return 'short' == $input->type;

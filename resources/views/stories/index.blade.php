@@ -27,17 +27,23 @@
                                 <td>Action</td>
                             </tr>
                             <tbody>
-                                @foreach ($stories as $item)
+                                @foreach ($stories as $story)
 
                                     <tr>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $item->type }}</td>
-                                        <td>{{ $item->status == 1 ? 'Yes' : 'No' }}</td>
+                                        <td>{{ $story->title }}</td>
+                                        <td>{{ $story->type }}</td>
+                                        <td>{{ $story->status == 1 ? 'Yes' : 'No' }}</td>
                                         <td>
-                                            <a class="btn btn-sm btn-success" href="{{ route('stories.show', [$item]) }}">View</a>
-                                            <a class="btn btn-sm btn-primary" href="{{ route('stories.edit', [$item]) }}">Edit</a>
+                                            @can('view', $story)
+                                                <a class="btn btn-sm btn-success" href="{{ route('stories.show', [$story]) }}">View</a>
+                                            @endcan
+                                            
+                                            @can('update', $story)
+                                            <a class="btn btn-sm btn-primary" href="{{ route('stories.edit', [$story]) }}">Edit</a>
+                                            @endcan
 
-                                            <form action="{{ route('stories.destroy', [$item] ) }}" method="POST" style="display: inline-block">
+                                            @can('delete', $story)
+                                            <form action="{{ route('stories.destroy', [$story] ) }}" method="POST" style="display: inline-block">
                                             
                                                 @method('DELETE')
                                                 @csrf
@@ -45,6 +51,8 @@
                                                 <button class="btn btn-sm btn-danger">Delete</button>
                                             
                                             </form>
+                                            @endcan
+
 
                                         </td>
                                     </tr>
