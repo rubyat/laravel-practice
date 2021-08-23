@@ -12,7 +12,9 @@
 
                 <div class="card-body">
                     
-                    {{ $story->body }}
+                    <p>{{ $story->body }}</p>
+
+                    <p><i>{{ $story->footnote }}</i></p>
 
                 </div>
             </div>

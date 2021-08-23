@@ -25,7 +25,7 @@ use App\Http\Controllers\DashboardController;
 Route::get('/',[DashboardController::class, 'index'])->name('dashboard.index');
 
 
-Route::get('/show/{story}',[DashboardController::class, 'show'])->name('dashboard.show');
+//Route::get('/show/{story:slug}',[DashboardController::class, 'show'])->name('dashboard.show');
 
 
 //Route::get('/stat_story',[DashboardController::class, 'show'])->name('dashboard.page');
@@ -63,6 +63,8 @@ Route::middleware(['auth'])->group(function(){
 });
 
 
-Route::get('/{slug}',[DashboardController::class, 'show'])->name('page.page');
+Route::get('/mail',[DashboardController::class, 'sendMail'])->name('dashboard.mail');
+Route::get('/{story:slug}',[DashboardController::class, 'show'])->name('dashboard.show');
+//Route::get('/{slug}',[DashboardController::class, 'show'])->name('page.page');
 
 

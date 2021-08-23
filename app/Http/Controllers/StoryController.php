@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Story;
 use App\Http\Requests\StoryRequest;
 use Illuminate\Support\Facades\Gate;
+use App\Mail\NewStoryNotification;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class StoryController extends Controller
 {
@@ -66,7 +69,11 @@ class StoryController extends Controller
         //     'status' => 'required',
         // ]);
 
-        auth()->user()->stories()->create($request->all());
+        $story = auth()->user()->stories()->create($request->all());
+
+        Mail::send(new NewStoryNotification( $story->title ));
+        Log::info("A story was added title " . $story->title . ' test');
+
         return redirect()->route('stories.index')->with('status','Story Created Successfully');
 
     }
