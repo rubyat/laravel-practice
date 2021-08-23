@@ -1,3 +1,53 @@
+
+
+Create New Project:
+    composer create-project laravel/laravel your-project-name --prefer-dist
+
+    php artisan config:clear
+
+    php artisan make:middleware CheckAge
+
+    php artisan make:controller showAge
+    php artisan make:controller UserController --resource
+
+    php artisan make:migration create_students_table --create=students
+    php artisan migrate
+
+    php artisan make:model Student --m
+
+    For Login
+    composer require laravel/ui
+    php artisan ui vue --auth
+
+
+    Seeder
+    php artisan make:seeder UsersTableSeeder
+    composer dump-autoload
+
+
+    composer require doctrine/dbal
+    এটা আমাদের সব প্যাকেজ গুলোকে update, প্রয়োজনে add করে নিবে।
+
+
+    Laravel Collective
+    composer require "laravelcollective/html":"^5.6.0"
+
+
+
+
+    fetchData on route
+    Route::get('/getall', function()
+    {
+        $fetchData = DB::select('select * from students');
+        echo "<pre>";
+        print_r($fetchData);
+        echo "</pre>";
+    });
+
+
+
+
+
 Laravel Request:
     It is common checking instade of checking each time on form submission
     Set custom requiremnt 
@@ -10,3 +60,4 @@ Laravel Request:
 
 
 Scope call on model for extar query
+
