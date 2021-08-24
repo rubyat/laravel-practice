@@ -1,3 +1,140 @@
+
+
+
+
+Create New Project:
+    composer create-project laravel/laravel your-project-name --prefer-dist
+
+Authintications:
+    composer require laravel/ui
+    php artisan ui vue --auth
+    npm install && npm r un dev
+
+Create Controller with model:
+    php artisan make:controller StoryController -r -m
+
+One to many /
+    return $this->hasMany(Story::class);
+    return $this->belongsTo(User::class);
+
+Select:
+    Story::findOrFail($id);
+
+See the list of route
+    php artisan route:list
+
+
+Blade Component:
+    php artisan make:component Alert
+    <x-alert />
+
+
+API:
+    composer require laravel/sanctum
+    php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+    php artisan migrate
+
+    php artisan make:controller Api/AuthController
+
+    route/api.php
+    Route::post('/authenticate', [AuthController::class, 'login']);
+
+    php artisan make:model Project -mf
+
+    // Make controller
+
+    php artisan make:controller Api/ProjectsController --api
+
+    // formate information resource 
+    php artisan make:resource Project
+    php artisan make:resource ProjectCollection
+
+
+
+    php artisan config:clear
+
+    php artisan make:middleware CheckAge
+
+    php artisan make:controller showAge
+    php artisan make:controller UserController --resource
+
+    php artisan make:migration create_students_table --create=students
+    php artisan migrate
+
+    php artisan make:model Student --m
+
+    For Login
+    composer require laravel/ui
+    php artisan ui vue --auth
+
+    No Model we can create new attribute
+
+    Slug can be set on model level with attributes
+    have to define slug on route (column name)
+
+
+    Seeder
+    php artisan make:seeder UsersTableSeeder
+    composer dump-autoload
+
+
+    Mail:
+    php artisan make:mail NotifyAdmin
+    php artisan make:mail NewStoryNotification --markdown=emails.newStoryNotification
+    php artisan vendor:publish --tag=laravel-mail (Bring vendor to resource view)
+
+    Soft Delete:
+    php artisan make:migration add_softdelete_to_stories --table=stories
+
+
+
+
+
+    composer require doctrine/dbal
+    এটা আমাদের সব প্যাকেজ গুলোকে update, প্রয়োজনে add করে নিবে।
+
+
+    Laravel Collective
+    composer require "laravelcollective/html":"^5.6.0"
+
+
+
+
+    fetchData on route
+    Route::get('/getall', function()
+    {
+        $fetchData = DB::select('select * from students');
+        echo "<pre>";
+        print_r($fetchData);
+        echo "</pre>";
+    });
+
+
+
+
+
+Laravel Request:
+    It is common checking instade of checking each time on form submission
+    Set custom requiremnt 
+    Set conditional requirment 
+    withValidator
+
+    provider / app provider authService
+
+    user permission can controll from here
+
+
+Scope call on model for extar query
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
