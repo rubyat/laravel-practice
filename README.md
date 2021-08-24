@@ -6,26 +6,26 @@
     php artisan ui vue --auth
     npm install && npm r un dev
 
-Create Controller with model:
+## Create Controller with model:
     php artisan make:controller StoryController -r -m
 
-One to many /
+## One to many /
     return $this->hasMany(Story::class);
     return $this->belongsTo(User::class);
 
-Select:
+## Select:
     Story::findOrFail($id);
 
-See the list of route
+## See the list of route
     php artisan route:list
 
 
-Blade Component:
+## Blade Component:
     php artisan make:component Alert
     <x-alert />
 
 
-API:
+## API:
     composer require laravel/sanctum
     php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
     php artisan migrate
@@ -59,7 +59,7 @@ API:
 
     php artisan make:model Student --m
 
-    For Login
+## For Login
     composer require laravel/ui
     php artisan ui vue --auth
 
@@ -69,12 +69,12 @@ API:
     have to define slug on route (column name)
 
 
-    Seeder
+## Seeder
     php artisan make:seeder UsersTableSeeder
     composer dump-autoload
 
 
-    Mail:
+## Mail:
     php artisan make:mail NotifyAdmin
     php artisan make:mail NewStoryNotification --markdown=emails.newStoryNotification
     php artisan vendor:publish --tag=laravel-mail (Bring vendor to resource view)
@@ -109,7 +109,7 @@ API:
 
 
 
-Laravel Request:
+## Laravel Request:
     It is common checking instade of checking each time on form submission
     Set custom requiremnt 
     Set conditional requirment 
@@ -118,7 +118,6 @@ Laravel Request:
     provider / app provider authService
 
     user permission can controll from here
-
 
 Scope call on model for extar query
 
