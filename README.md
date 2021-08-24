@@ -1,9 +1,5 @@
-
-
-
-
 Create New Project:
-    composer create-project laravel/laravel your-project-name --prefer-dist
+    - composer create-project laravel/laravel your-project-name --prefer-dist
 
 Authintications:
     composer require laravel/ui
