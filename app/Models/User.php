@@ -47,5 +47,15 @@ class User extends Authenticatable
         return $this->hasMany(Story::class);
     }
 
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
 
 }

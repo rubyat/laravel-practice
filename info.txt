@@ -28,6 +28,25 @@ Blade Component:
     <x-alert />
 
 
+API:
+    composer require laravel/sanctum
+    php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+    php artisan migrate
+
+    php artisan make:controller Api/AuthController
+
+    route/api.php
+    Route::post('/authenticate', [AuthController::class, 'login']);
+
+    php artisan make:model Project -mf
+
+    // Make controller
+
+    php artisan make:controller Api/ProjectsController --api
+
+    // formate information resource 
+    php artisan make:resource Project
+    php artisan make:resource ProjectCollection
 
 
 
