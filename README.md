@@ -1,6 +1,10 @@
 ## Create New Project:
     composer create-project laravel/laravel your-project-name --prefer-dist
 
+
+    php artisan make:model Service -m
+    php artisan make:controller Admin/ServiceController -r
+
 ## Authintications:
     composer require laravel/ui
     php artisan ui vue --auth
